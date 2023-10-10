@@ -1,5 +1,5 @@
 /***************************************************************
-		Q1: How many songs were sold by each Artist/Band
+	Q1: How many songs were sold by each Artist/Band
 ***************************************************************/
 
 SELECT artist.Name,COUNT(DISTINCT(InvoiceLine.TrackId)) AS Songs_sold
@@ -14,7 +14,7 @@ GROUP BY artist.Name
 ORDER BY Songs_sold DESC
 
 /***************************************
-		Q2: Total sales by genre
+	Q2: Total sales by genre
 ***************************************/
 
 CREATE VIEW Total_sales AS (
@@ -33,7 +33,7 @@ GROUP BY Genre.Name
 ORDER BY Sales DESC
 
 /*****************************************************
-		Q3: Most popular genre of each country
+	Q3: Most popular genre of each country
 *****************************************************/
 
 CREATE VIEW purchases_per_genre AS (
@@ -59,7 +59,7 @@ WHERE ppg.purchases = mppg.max_purchases
 ORDER BY ppg.Country
 
 /********************************************************************************
-		Q3.2 Most popular genre of an introduced country using a function
+	Q3.2 Most popular genre of an introduced country using a function
 ********************************************************************************/
 
 CREATE FUNCTION Most_pupular_genre_of_a_country (@country VARCHAR(50))
@@ -74,7 +74,7 @@ WHERE ppg.purchases = mppg.max_purchases and ppg.Country = @country
 SELECT * FROM Most_pupular_genre_of_a_country('Australia')
 
 /**********************************************************
-		Q4 Who is the best costumer of each country
+	Q4 Who is the best costumer of each country
 **********************************************************/
 
 CREATE VIEW purchases_per_customer AS (
